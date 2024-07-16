@@ -1,0 +1,26 @@
+﻿@page "/"
+@rendermode InteractiveServer
+
+<PageTitle>Home</PageTitle>
+
+<div class="p-5 mb-3 border border-1">
+  <h2>Total Count: @TotalCount</h2>
+  <button @onclick="() => IncrementTotalCount(1)" class="btn btn-success">Click me</button>
+</div>
+
+<div class="p-5 mb-3 border border-1">
+  <Counter Title="Counter 1" Increment="1" OnClick="IncrementTotalCount" />
+</div>
+
+<div class="p-5 mb-3 border border-1">
+  <Counter Title="Counter 2" Increment="3" OnClick="IncrementTotalCount" />
+</div>
+
+
+@code {
+  public int TotalCount { get; set; }
+
+  private void IncrementTotalCount (int increment) {
+    TotalCount += increment;
+  }
+}
